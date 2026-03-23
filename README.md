@@ -1,6 +1,6 @@
 # SCP 주소 생성기 (니모닉 기반)
 
-이 프로젝트는 SCP 블록체인(Stellar/Pi Network) 생태계에서 니모닉(비밀 구절)을 기반으로 Stellar-SDK를 이용해 새로운 지갑 주소를 생성하는 스크립트입니다. 테스트넷(Testnet)과 메인넷(Mainnet) 네트워크를 모두 지원하며, 24단어 비밀 구절에서 표준 파생 경로를 통해 키 쌍을 도출합니다. 소스코드에는 Pi Network의 RPC URL이 등록되어 있으며, Stellar RPC URL로 교체하면 Stella에서도 동작합니다.
+이 프로젝트는 SCP 블록체인(Stellar/Pi Network) 생태계에서 Stellar-SDK를 이용해 니모닉(비밀 구절) 기반의 새로운 지갑 주소를 생성하는 스크립트입니다. 테스트넷(Testnet)과 메인넷(Mainnet) 네트워크를 모두 지원하며, 24단어 비밀 구절에서 표준 파생 경로를 통해 키 쌍을 도출합니다. 소스코드에는 Pi Network의 RPC URL이 등록되어 있으며, Stellar RPC URL로 교체하면 Stella에서도 동작합니다.
 
 ## 면책 조항 및 라이선스 고지 (Disclaimer & License)
 
@@ -36,6 +36,24 @@ npm install
 ### 테스트넷 (기본값)
 ```bash
 node create-wallet.js -s <SECRET_KEY>
+```
+```bash
+# 결과출력
+네트워크: Testnet
+생성자 주소: 
+
+=== 새로운 지갑 키페어 생성 완료 ===
+비밀 구절(Passphrase): 
+공개키(Public Key): 
+시크릿키(Secret Key): 
+====================================
+
+생성자 계정 정보를 파이 테스트넷에서 불러오는 중...
+트랜잭션 생성 중... (초기 잔액 1 Pi 지급)
+트랜잭션을 네트워크에 제출하는 중...
+
+성공! 트랜잭션 해시: 
+새로운 지갑이 파이 테스트넷에 성공적으로 생성되었으며 1 Pi가 충전되었습니다.
 ```
 
 ### 메인넷
