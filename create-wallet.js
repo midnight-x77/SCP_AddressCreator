@@ -45,8 +45,16 @@ async function createNewWallet() {
         console.log("공개키(Public Key):", newKeyPair.publicKey());
         console.log("시크릿키(Secret Key):", newKeyPair.secret());
         console.log("====================================\n");
+
+        if (!isMainnet)
+        {
+            console.log("생성자 계정 정보를 파이 테스트넷에서 불러오는 중...");
+        }
+        else 
+        {
+            console.log("생성자 계정 정보를 파이 메인넷에서 불러오는 중...");
+        }
         
-        console.log("생성자 계정 정보를 파이 테스트넷에서 불러오는 중...");
         const creatorAccount = await server.loadAccount(creatorKeyPair.publicKey());
         
         // 트랜잭션 빌더 설정 (Create Account Operation)
@@ -65,13 +73,19 @@ async function createNewWallet() {
         // 생성자 지갑으로 서명
         transaction.sign(creatorKeyPair);
         
-        // 트랜잭션 파이 테스트넷에 제출
+        // 트랜잭션 파이 네트워크에 제출
         console.log("트랜잭션을 네트워크에 제출하는 중...");
         const response = await server.submitTransaction(transaction);
         
         console.log("\n성공! 트랜잭션 해시:", response.hash);
-        console.log("새로운 지갑이 파이 테스트넷에 성공적으로 생성되었으며 1 Pi가 충전되었습니다.");
-        
+        if (!isMainnet)
+        {
+            console.log("새로운 지갑이 파이 테스트넷에 성공적으로 생성되었으며 1 Pi가 충전되었습니다.");
+        }
+        else
+        {
+            console.log("새로운 지갑이 파이 메인넷에 성공적으로 생성되었으며 1 Pi가 충전되었습니다.");
+        }
     } catch (error) {
         console.error("\n오류 발생:", error.message);
         if (error.response && error.response.data) {
