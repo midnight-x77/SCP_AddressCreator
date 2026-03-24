@@ -35,7 +35,11 @@ npm install
 
 ### 테스트넷 (기본값)
 ```bash
+# SECRET_KEY는 S로 시작하는 비밀키이며, Pi Wallet의 지갑설정에서 확인할 수 있습니다.
+# <SECRET_KEY>의 '<'와 '>'는 입력이 아님
 node create-wallet.js -s <SECRET_KEY>
+
+node create-wallet.js -s SBQPD**********BYRCUOPR2M3FHP365ZXGVDSPHHQT6VQ6MZ3ZV4SWS
 ```
 ```bash
 # 결과출력
